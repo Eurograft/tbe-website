@@ -56,6 +56,39 @@ const productCards: ProductCard[] = [
   { title: 'Soft Tissue Allografts', desc: 'Tendon and membrane grafts for reconstruction.' },
 ]
 
+type QualityColumn = { title: string; body: string; icon: React.ReactElement }
+
+const qualityColumns: QualityColumn[] = [
+  {
+    title: 'Processing & Sterilisation',
+    body: 'FDA-regulated processing facilities with terminal sterilisation. Full donor screening, serological testing, and documented traceability from recovery to implantation.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8">
+        <circle cx="12" cy="12" r="10" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'EU Regulatory Framework',
+    body: 'Authorised under EU Directive 2004/23/EC. Tissue establishment licence held by Eurograft Tissue Bank Ltd. Ongoing compliance with Bulgarian and EU competent authority requirements.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8">
+        <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Cold Chain & Distribution',
+    body: 'Validated temperature-controlled packaging and logistics. Documented chain of custody for every shipment. Shelf-life and storage requirements met at every step.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8">
+        <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" />
+      </svg>
+    ),
+  },
+]
+
 export default function HomePage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState(false)
@@ -159,6 +192,24 @@ export default function HomePage() {
                 <p className="text-sm text-body-text/70 mb-2">{card.desc}</p>
                 <span className="text-brand-cyan text-sm">View Products →</span>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Quality & Compliance ── */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-3xl text-dark-slate text-center mb-12">
+            Uncompromising Quality Standards
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {qualityColumns.map((col) => (
+              <div key={col.title}>
+                <div className="text-brand-cyan mb-4">{col.icon}</div>
+                <h3 className="font-semibold text-dark-slate text-lg mb-3">{col.title}</h3>
+                <p className="text-body-text/80 text-sm leading-relaxed">{col.body}</p>
+              </div>
             ))}
           </div>
         </div>

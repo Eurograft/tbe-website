@@ -68,3 +68,25 @@ describe('Products Teaser section', () => {
     expect(links[0]).toHaveAttribute('href', '/products')
   })
 })
+
+describe('Quality & Compliance section', () => {
+  it('renders the section heading', () => {
+    render(<Page />)
+    expect(
+      screen.getByRole('heading', { level: 2, name: /uncompromising quality standards/i })
+    ).toBeInTheDocument()
+  })
+
+  it('renders all 3 column headings', () => {
+    render(<Page />)
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'Processing & Sterilisation' })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'EU Regulatory Framework' })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'Cold Chain & Distribution' })
+    ).toBeInTheDocument()
+  })
+})
