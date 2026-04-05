@@ -135,6 +135,10 @@ describe('Contact form section', () => {
   it('shows error message when submission fails', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValueOnce({ ok: false } as Response)
     render(<Page />)
+    fireEvent.change(screen.getByPlaceholderText('Name *'), { target: { value: 'Dr. Test' } })
+    fireEvent.change(screen.getByPlaceholderText('Email *'), {
+      target: { value: 'test@example.com' },
+    })
     fireEvent.click(screen.getByRole('button', { name: /send request/i }))
     await waitFor(() => {
       expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()

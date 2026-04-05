@@ -253,12 +253,14 @@ export default function HomePage() {
                     type="text"
                     name="name"
                     placeholder="Name *"
+                    required
                     className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
                   />
                   <input
                     type="email"
                     name="email"
                     placeholder="Email *"
+                    required
                     className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
                   />
                   <input
