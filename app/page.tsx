@@ -87,7 +87,7 @@ const qualityColumns: CardItem[] = [
   },
 ]
 
-const europeanCountries = [
+const europeanCountries: string[] = [
   'Albania', 'Andorra', 'Austria', 'Belarus', 'Belgium', 'Bosnia & Herzegovina',
   'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia',
   'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland',
@@ -98,7 +98,7 @@ const europeanCountries = [
   'United Kingdom', 'Vatican City',
 ]
 
-const areasOfInterest = [
+const areasOfInterest: string[] = [
   'Cortical Bone Grafts',
   'Cancellous Grafts',
   'Demineralised Bone Matrix (DBM)',
@@ -231,6 +231,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* ── Contact Form ── */}
       <section className="bg-dark-slate py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
