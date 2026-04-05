@@ -87,6 +87,25 @@ const qualityColumns: CardItem[] = [
   },
 ]
 
+const europeanCountries = [
+  'Albania', 'Andorra', 'Austria', 'Belarus', 'Belgium', 'Bosnia & Herzegovina',
+  'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia',
+  'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland',
+  'Italy', 'Kosovo', 'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg',
+  'Malta', 'Moldova', 'Monaco', 'Montenegro', 'Netherlands', 'North Macedonia',
+  'Norway', 'Poland', 'Portugal', 'Romania', 'San Marino', 'Serbia', 'Slovakia',
+  'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine',
+  'United Kingdom', 'Vatican City',
+]
+
+const areasOfInterest = [
+  'Cortical Bone Grafts',
+  'Cancellous Grafts',
+  'Demineralised Bone Matrix (DBM)',
+  'Soft Tissue Allografts',
+  'General Enquiry',
+]
+
 export default function HomePage() {
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState(false)
@@ -209,6 +228,97 @@ export default function HomePage() {
                 <p className="text-body-text/80 text-sm leading-relaxed">{col.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      {/* ── Contact Form ── */}
+      <section className="bg-dark-slate py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="md:grid md:grid-cols-2 md:gap-12">
+            <div className="mb-10 md:mb-0">
+              <h2 className="font-serif text-3xl text-white mb-4">Request Information</h2>
+              <p className="text-white/70">
+                Whether you&apos;re evaluating allografts for a procedure or looking to establish a
+                supply relationship — we&apos;ll respond within one business day.
+              </p>
+            </div>
+            <div>
+              {submitted ? (
+                <p className="text-white text-lg">
+                  Thank you — we&apos;ll be in touch shortly.
+                </p>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name *"
+                    className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email *"
+                    className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone"
+                    className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
+                  />
+                  <input
+                    type="text"
+                    name="organisation"
+                    placeholder="Organisation"
+                    className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
+                  />
+                  <select
+                    name="country"
+                    defaultValue=""
+                    className="bg-white/10 border border-white/20 text-white rounded px-3 py-2 w-full"
+                  >
+                    <option value="" disabled>
+                      Country
+                    </option>
+                    {europeanCountries.map((c) => (
+                      <option key={c} value={c} className="text-dark-slate bg-white">
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    name="area"
+                    defaultValue=""
+                    className="bg-white/10 border border-white/20 text-white rounded px-3 py-2 w-full"
+                  >
+                    <option value="" disabled>
+                      Area of Interest
+                    </option>
+                    {areasOfInterest.map((a) => (
+                      <option key={a} value={a} className="text-dark-slate bg-white">
+                        {a}
+                      </option>
+                    ))}
+                  </select>
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows={4}
+                    className="bg-white/10 border border-white/20 text-white placeholder:text-white/50 rounded px-3 py-2 w-full"
+                  />
+                  {submitError && (
+                    <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+                  )}
+                  <button
+                    type="submit"
+                    className="bg-brand-cyan text-white px-6 py-2 rounded font-semibold hover:opacity-90 self-start"
+                  >
+                    Send Request
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>

@@ -90,3 +90,54 @@ describe('Quality & Compliance section', () => {
     ).toBeInTheDocument()
   })
 })
+
+describe('Contact form section', () => {
+  it('renders the section heading', () => {
+    render(<Page />)
+    expect(
+      screen.getByRole('heading', { level: 2, name: /request information/i })
+    ).toBeInTheDocument()
+  })
+
+  it('renders all required form fields', () => {
+    render(<Page />)
+    expect(screen.getByPlaceholderText('Name *')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Email *')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Phone')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Organisation')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Message')).toBeInTheDocument()
+  })
+
+  it('renders country and area of interest selects', () => {
+    render(<Page />)
+    const selects = screen.getAllByRole('combobox')
+    expect(selects).toHaveLength(2)
+  })
+
+  it('renders the submit button', () => {
+    render(<Page />)
+    expect(screen.getByRole('button', { name: /send request/i })).toBeInTheDocument()
+  })
+
+  it('shows success message after successful form submission', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValueOnce({ ok: true } as Response)
+    render(<Page />)
+    fireEvent.change(screen.getByPlaceholderText('Name *'), { target: { value: 'Dr. Test' } })
+    fireEvent.change(screen.getByPlaceholderText('Email *'), {
+      target: { value: 'test@example.com' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /send request/i }))
+    await waitFor(() => {
+      expect(screen.getByText(/thank you — we'll be in touch shortly/i)).toBeInTheDocument()
+    })
+  })
+
+  it('shows error message when submission fails', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValueOnce({ ok: false } as Response)
+    render(<Page />)
+    fireEvent.click(screen.getByRole('button', { name: /send request/i }))
+    await waitFor(() => {
+      expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()
+    })
+  })
+})
