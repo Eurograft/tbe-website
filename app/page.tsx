@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-type WhyCard = { title: string; body: string; icon: React.ReactElement }
+type CardItem = { title: string; body: string; icon: React.ReactElement }
 type ProductCard = { title: string; desc: string }
 
-const whyCards: WhyCard[] = [
+const whyCards: CardItem[] = [
   {
     title: 'FDA-Sourced',
     body: 'All grafts sourced from FDA-registered, AATB-accredited US tissue banks.',
@@ -56,9 +56,7 @@ const productCards: ProductCard[] = [
   { title: 'Soft Tissue Allografts', desc: 'Tendon and membrane grafts for reconstruction.' },
 ]
 
-type QualityColumn = { title: string; body: string; icon: React.ReactElement }
-
-const qualityColumns: QualityColumn[] = [
+const qualityColumns: CardItem[] = [
   {
     title: 'Processing & Sterilisation',
     body: 'FDA-regulated processing facilities with terminal sterilisation. Full donor screening, serological testing, and documented traceability from recovery to implantation.',
