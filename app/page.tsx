@@ -114,7 +114,7 @@ export default function HomePage() {
     e.preventDefault()
     setSubmitError(false)
     const data = Object.fromEntries(new FormData(e.currentTarget).entries())
-    const res = await fetch('FORMSPREE_ENDPOINT', {
+    const res = await fetch('https://formspree.io/f/xbdpqjvd', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(data),
