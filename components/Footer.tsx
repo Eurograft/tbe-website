@@ -22,7 +22,7 @@ export default function Footer() {
                 alt="Eurograft logo"
                 width={140}
                 height={35}
-                className="h-8 w-auto mb-3"
+                className="h-8 w-auto mb-3 brightness-0 invert"
               />
             </Link>
             <p className="text-sm text-white/70 mt-2">
