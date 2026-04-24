@@ -145,3 +145,25 @@ describe('Contact form section', () => {
     })
   })
 })
+
+describe('Trust bar section', () => {
+  it('renders EU Licensed trust indicator', () => {
+    render(<Page />)
+    expect(screen.getByText('EU Licensed Tissue Establishment')).toBeInTheDocument()
+  })
+
+  it('renders FDA-Sourced trust indicator', () => {
+    render(<Page />)
+    expect(screen.getByText('FDA-Sourced Products')).toBeInTheDocument()
+  })
+
+  it('renders CE Marked trust indicator', () => {
+    render(<Page />)
+    expect(screen.getByText('CE Marked Supply Chain')).toBeInTheDocument()
+  })
+
+  it('renders European shipping trust indicator', () => {
+    render(<Page />)
+    expect(screen.getByText('Ships Across 30+ European Countries')).toBeInTheDocument()
+  })
+})

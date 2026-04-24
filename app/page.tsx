@@ -138,6 +138,50 @@ const qualityColumns: CardItem[] = [
   },
 ]
 
+type TrustItem = { label: string; sub: string; icon: React.ReactElement }
+
+const trustItems: TrustItem[] = [
+  {
+    label: 'EU Licensed Tissue Establishment',
+    sub: 'Directive 2004/23/EC',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 flex-shrink-0">
+        <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+  },
+  {
+    label: 'FDA-Sourced Products',
+    sub: 'AATB-accredited US banks',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 flex-shrink-0">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18" />
+      </svg>
+    ),
+  },
+  {
+    label: 'CE Marked Supply Chain',
+    sub: 'EU conformity verified',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 flex-shrink-0">
+        <circle cx="12" cy="8" r="6" />
+        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Ships Across 30+ European Countries',
+    sub: 'Cold-chain validated logistics',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 flex-shrink-0">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+]
+
 const europeanCountries: string[] = [
   'Albania', 'Andorra', 'Austria', 'Belarus', 'Belgium', 'Bosnia & Herzegovina',
   'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia',
@@ -214,6 +258,23 @@ export default function HomePage() {
             >
               Request Information
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Trust Bar ── */}
+      <section className="bg-[#243347] py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {trustItems.map((item) => (
+              <div key={item.label} className="flex items-start gap-3">
+                <div className="text-brand-cyan mt-0.5">{item.icon}</div>
+                <div>
+                  <p className="text-white text-sm font-semibold leading-snug">{item.label}</p>
+                  <p className="text-white/60 text-xs mt-0.5">{item.sub}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
