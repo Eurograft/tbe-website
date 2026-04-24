@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 type CardItem = { title: string; body: string; icon: React.ReactElement }
-type ProductCard = { title: string; desc: string }
+type ProductCard = { title: string; desc: string; icon: React.ReactElement }
 
 const whyCards: CardItem[] = [
   {
@@ -50,10 +50,61 @@ const whyCards: CardItem[] = [
 ]
 
 const productCards: ProductCard[] = [
-  { title: 'Cortical Bone Grafts', desc: 'Structural support for load-bearing defects.' },
-  { title: 'Cancellous Grafts', desc: 'Osteoconductive filler for voids and cavities.' },
-  { title: 'Demineralised Bone Matrix (DBM)', desc: 'Osteoinductive putty, gel, and sheet formats.' },
-  { title: 'Soft Tissue Allografts', desc: 'Tendon and membrane grafts for reconstruction.' },
+  {
+    title: 'Cortical Bone Grafts',
+    desc: 'Structural support for load-bearing defects.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-10 h-10">
+        <rect x="3" y="4" width="18" height="4" rx="1" />
+        <rect x="3" y="10" width="18" height="4" rx="1" />
+        <rect x="3" y="16" width="18" height="4" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Cancellous Grafts',
+    desc: 'Osteoconductive filler for voids and cavities.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10">
+        <circle cx="4.5" cy="4.5" r="1.8" />
+        <circle cx="12" cy="4.5" r="1.8" />
+        <circle cx="19.5" cy="4.5" r="1.8" />
+        <circle cx="4.5" cy="12" r="1.8" />
+        <circle cx="12" cy="12" r="1.8" />
+        <circle cx="19.5" cy="12" r="1.8" />
+        <circle cx="4.5" cy="19.5" r="1.8" />
+        <circle cx="12" cy="19.5" r="1.8" />
+        <circle cx="19.5" cy="19.5" r="1.8" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Demineralised Bone Matrix (DBM)',
+    desc: 'Osteoinductive putty, gel, and sheet formats.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-10 h-10">
+        <circle cx="12" cy="12" r="2.5" />
+        <circle cx="4.5" cy="6.5" r="1.5" />
+        <circle cx="19.5" cy="6.5" r="1.5" />
+        <circle cx="4.5" cy="17.5" r="1.5" />
+        <circle cx="19.5" cy="17.5" r="1.5" />
+        <line x1="6.2" y1="7.8" x2="10.1" y2="10.5" strokeLinecap="round" />
+        <line x1="17.8" y1="7.8" x2="13.9" y2="10.5" strokeLinecap="round" />
+        <line x1="6.2" y1="16.2" x2="10.1" y2="13.5" strokeLinecap="round" />
+        <line x1="17.8" y1="16.2" x2="13.9" y2="13.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Soft Tissue Allografts',
+    desc: 'Tendon and membrane grafts for reconstruction.',
+    icon: (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-10 h-10">
+        <path strokeLinecap="round" d="M2 8c2.5-4 5-4 7.5 0s5 4 7.5 0 5-4 7.5 0" />
+        <path strokeLinecap="round" d="M2 14c2.5-4 5-4 7.5 0s5 4 7.5 0 5-4 7.5 0" />
+      </svg>
+    ),
+  },
 ]
 
 const qualityColumns: CardItem[] = [
@@ -205,6 +256,7 @@ export default function HomePage() {
                 href="/products"
                 className="bg-white rounded-lg p-6 border border-divider hover:shadow-md transition block"
               >
+                <div className="text-brand-cyan mb-4">{card.icon}</div>
                 <h3 className="font-semibold text-dark-slate mb-2">{card.title}</h3>
                 <p className="text-sm text-body-text/70 mb-2">{card.desc}</p>
                 <span className="text-brand-cyan text-sm">View Products →</span>
