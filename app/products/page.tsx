@@ -1,3 +1,5 @@
+'use client'
+
 import AIImagePlaceholder from '@/components/AIImagePlaceholder'
 import ContactForm from '@/components/ContactForm'
 
