@@ -1,20 +1,28 @@
 import type { Metadata } from 'next'
-import { DM_Sans, DM_Serif_Display } from 'next/font/google'
+import { Fraunces, Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const dmSans = DM_Sans({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-fraunces',
   display: 'swap',
+  weight: ['700', '900'],
 })
 
-const dmSerif = DM_Serif_Display({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-dm-serif',
+  variable: '--font-space-grotesk',
   display: 'swap',
+  weight: ['500', '600', '700'],
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+  weight: ['400', '500', '700'],
 })
 
 export const metadata: Metadata = {
@@ -28,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerif.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="font-sans">
         <Nav />
         {children}
