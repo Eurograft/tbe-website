@@ -168,7 +168,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Why Eurograft ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl text-dark-slate text-center mb-12">
             Why Surgical Teams Choose Eurograft
@@ -215,7 +215,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Quality & Compliance ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl text-dark-slate text-center mb-12">
             Uncompromising Quality Standards
