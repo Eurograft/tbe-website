@@ -146,6 +146,29 @@ describe('Contact form section', () => {
   })
 })
 
+describe('Stats / credibility section', () => {
+  it('renders Founded stat label', () => {
+    render(<Page />)
+    expect(screen.getByText('Year Founded')).toBeInTheDocument()
+  })
+
+  it('renders EU Licensed stat value', () => {
+    render(<Page />)
+    const matches = screen.getAllByText('EU Licensed')
+    expect(matches.length).toBeGreaterThanOrEqual(1)
+  })
+
+  it('renders FDA-Regulated stat value', () => {
+    render(<Page />)
+    expect(screen.getByText('FDA-Regulated')).toBeInTheDocument()
+  })
+
+  it('renders European reach stat label', () => {
+    render(<Page />)
+    expect(screen.getByText('European Reach')).toBeInTheDocument()
+  })
+})
+
 describe('Trust bar section', () => {
   it('renders EU Licensed trust indicator', () => {
     render(<Page />)

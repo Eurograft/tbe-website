@@ -182,6 +182,15 @@ const trustItems: TrustItem[] = [
   },
 ]
 
+type StatItem = { value: string; label: string }
+
+const statItems: StatItem[] = [
+  { value: '2024', label: 'Year Founded' },
+  { value: 'EU Licensed', label: 'Tissue Establishment' },
+  { value: 'FDA-Regulated', label: 'Source Facilities' },
+  { value: '30+', label: 'European Reach' },
+]
+
 const europeanCountries: string[] = [
   'Albania', 'Andorra', 'Austria', 'Belarus', 'Belgium', 'Bosnia & Herzegovina',
   'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia',
@@ -339,6 +348,22 @@ export default function HomePage() {
                 <div className="text-brand-cyan mb-4">{col.icon}</div>
                 <h3 className="font-semibold text-dark-slate text-lg mb-3">{col.title}</h3>
                 <p className="text-body-text/80 text-sm leading-relaxed">{col.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats / Credibility ── */}
+      <section className="bg-dark-slate py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {statItems.map((stat) => (
+              <div key={stat.label}>
+                <p className="font-serif text-4xl md:text-5xl text-brand-cyan font-bold leading-none">
+                  {stat.value}
+                </p>
+                <p className="mt-3 text-white/70 text-sm uppercase tracking-wide">{stat.label}</p>
               </div>
             ))}
           </div>
