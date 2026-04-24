@@ -4,3 +4,8 @@ import '@testing-library/jest-dom'
 if (typeof global.fetch === 'undefined') {
   global.fetch = jest.fn()
 }
+
+// Mock Vercel Speed Insights
+jest.mock('@vercel/speed-insights/next', () => ({
+  SpeedInsights: () => null,
+}))
